@@ -5,7 +5,6 @@ An command line program that helps users track their investment portfolio assets
 - [Graham](#graham)
   - [Table of Contents](#table-of-contents)
   - [Command Line Interface](#command-line-interface)
-  - [Command Line Interface](#command-line-interface-1)
   - [Coding Style Guide](#coding-style-guide)
     - [Style Guide Checklist](#style-guide-checklist)
     - [Data Types and Size Constraints](#data-types-and-size-constraints)
@@ -13,7 +12,6 @@ An command line program that helps users track their investment portfolio assets
       - [Fundamental scalar types](#fundamental-scalar-types)
       - [Safety‑critical guidelines](#safetycritical-guidelines)
 
-## Command Line Interface
 ## Command Line Interface
 
 ```shell
