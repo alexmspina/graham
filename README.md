@@ -4,6 +4,12 @@ An command line program that helps users track their investment portfolio assets
 ## Table of Contents
 - [Graham](#graham)
   - [Table of Contents](#table-of-contents)
+  - [Development](#development)
+    - [Prerequisites](#prerequisites)
+    - [Development Environment Setup](#development-environment-setup)
+    - [Using Docker Development Environment](#using-docker-development-environment)
+    - [Code Style](#code-style)
+    - [Building](#building)
   - [Command Line Interface](#command-line-interface)
   - [Coding Style Guide](#coding-style-guide)
     - [Style Guide Checklist](#style-guide-checklist)
@@ -12,6 +18,7 @@ An command line program that helps users track their investment portfolio assets
       - [Fundamental scalar types](#fundamental-scalar-types)
       - [Safety‑critical guidelines](#safetycritical-guidelines)
 
+## Development
 ### Prerequisites
 
 - GCC or Clang compiler with C23 support
