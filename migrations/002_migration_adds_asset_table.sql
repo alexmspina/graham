@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS assets (
+    id VARCHAR(37) PRIMARY KEY,
+    symbol VARCHAR(5) NOT NULL UNIQUE,
+    name VARCHAR(30) NOT NULL UNIQUE,
+    type VARCHAR(5) NOT NULL,
+    tax_exempt BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at VARCHAR(24) NOT NULL,
+    updated_at VARCHAR(24) NOT NULL
+);

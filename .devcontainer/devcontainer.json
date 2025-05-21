@@ -1,0 +1,39 @@
+{
+    "name": "C Development Container",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "c-dev",
+    "workspaceFolder": "/app",
+    "remoteUser": "root",
+    "overrideCommand": true,
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.cpptools-themes",
+                "ms-vscode.cmake-tools",
+                "ms-vscode.makefile-tools",
+                "twxs.cmake",
+                "austin.code-gnu-global",
+                "xaver.clang-format",
+                "vscodevim.vim"
+            ],
+            "settings": {
+                "C_Cpp.default.cppStandard": "c23",
+                "C_Cpp.default.cStandard": "c23",
+                "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+                "C_Cpp.default.intelliSenseMode": "gcc-x64",
+                "C_Cpp.default.includePath": [
+                    "${workspaceFolder}/**"
+                ],
+                "editor.formatOnSave": true,
+                "C_Cpp.clang_format_style": "file",
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            }
+        }
+    },
+    "initializeCommand": "limactl start default || true",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached"
+    ]
+}

@@ -1,0 +1,18 @@
+// .vscode/c_cpp_properties.json  (⇧⌘P →  C/C++: Edit Configurations (JSON))
+{
+    "configurations": [
+        {
+            "name": "linux-gcc",
+            "compilerPath": "/usr/bin/gcc", // or clang, cl.exe, etc.
+            "intelliSenseMode": "gcc-x64", // match the compiler above
+            "cStandard": "c17", // anything ≥ C99
+            "includePath": [
+                "${default}", // <-- pulls in system headers
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "cppStandard": "c++23"
+        }
+    ],
+    "version": 4
+}
