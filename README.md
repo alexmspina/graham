@@ -12,6 +12,82 @@ An command line program that helps users track their investment portfolio assets
       - [Fundamental scalar types](#fundamental-scalar-types)
       - [Safety‑critical guidelines](#safetycritical-guidelines)
 
+### Prerequisites
+
+- GCC or Clang compiler with C23 support
+- Make
+- Git
+- SQLite3 development files
+
+### Development Environment Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/graham.git
+   cd graham
+   ```
+
+2. **Install SQLite Amalgamation**
+   ```bash
+   # Create a directory for SQLite source files
+   mkdir -p src/sqlite
+   cd src/sqlite
+   
+   # Download SQLite amalgamation files
+   curl -O https://www.sqlite.org/2024/sqlite-amalgamation-3440000.zip
+   unzip sqlite-amalgamation-3440000.zip
+   
+   # Move files to the correct location
+   mv sqlite-amalgamation-3440000/* .
+   rm -rf sqlite-amalgamation-3440000*
+   cd ../..
+   ```
+
+3. **Build the project**
+   ```bash
+   make
+   ```
+
+### Using Docker Development Environment
+
+A Docker development environment is provided for consistent builds across different systems.
+
+1. **Build the Docker image**
+   ```bash
+   docker build -t graham-dev .
+   ```
+
+2. **Run the development container**
+   ```bash
+   docker run -it --rm -v $(pwd):/app graham-dev
+   ```
+
+The Docker environment includes:
+- Ubuntu 25.04
+- GCC with C23 support
+- Clang-format 19
+- Make
+- Git
+- Zsh with Starship prompt
+- All necessary build tools
+
+### Code Style
+
+The project uses clang-format for code formatting. To format your code:
+
+```bash
+clang-format -i src/*.c src/*.h
+```
+
+### Building
+
+The project uses Make for building. Available targets:
+
+- `make` - Build the project
+- `make clean` - Clean build artifacts
+- `make test` - Run tests
+- `make format` - Format code using clang-format
+
 ## Command Line Interface
 
 ```shell
@@ -311,7 +387,7 @@ ISO C guarantees only *minimum* widths and certain ordering relations (e.g., `
 | **Size / diff**              | `size_t`, `ptrdiff_t`                  | —                                    | —                   |          4         |        8        |         8        |
 
 \* `long double` varies by compiler:
-\* GCC/Clang x86‑64 Linux → 16 B (binary128) • x86‑32 → 12 B • MSVC → 8 B\*
+\* GCC/Clang x86‑64 Linux → 16 B (binary128) • x86‑32 → 12 B • MSVC → 8 B\*
 
 ---
 
