@@ -1641,8 +1641,6 @@ static CmdResultCode cmd_asset_rm(Args args) {
 
     sqlite3_close(db);
 
-    fprintf(stdout, "Removed asset %s\n", args.opts.asset_opts.opts.rm.symbol);
-
     return EXIT_SUCCESS;
 }
 
@@ -1710,11 +1708,11 @@ static void account_add_print_help(FILE *stream) {
             "Usage: graham accounts add [--OPTIONS]\n"
             "\n"
             "Add an account:\n"
-            "  graham accounts add --symbol SYMBOL --portfolio PORTFOLIO_NAME\n"
+            "  graham accounts add --asset ASSET_SYMBOL --portfolio PORTFOLIO_NAME\n"
             "\n"
             "Options:\n"
             "  -p, --portfolio PORTFOLIO_NAME The portfolio to list accounts for\n"
-            "  -s, --symbol SYMBOL The symbol of the account to list\n"
+            "  -a, --asset ASSET_SYMBOL The symbol of the account to list\n"
             "  -h, --help Show help for graham accounts add\n"
             "\n");
 }
@@ -2036,10 +2034,10 @@ static void account_rm_print_help(FILE *stream) {
             "Usage: graham accounts rm [--OPTIONS]\n"
             "\n"
             "Remove an account:\n"
-            "  graham accounts rm --symbol SYMBOL --portfolio PORTFOLIO_NAME\n"
+            "  graham accounts rm --asset ASSET_SYMBOL --portfolio PORTFOLIO_NAME\n"
             "\n"
             "Options:\n"
-            "  -s, --symbol SYMBOL The symbol of the account to remove\n"
+            "  -a, --assest ASSET_SYMBOL The symbol of the account to remove\n"
             "  -p, --portfolio PORTFOLIO_NAME The portfolio of the account to remove\n"
             "  -h, --help Show help for graham accounts rm\n"
             "\n");
@@ -2115,9 +2113,6 @@ static CmdResultCode cmd_account_rm(Args args) {
     }
 
     sqlite3_close(db);
-
-    fprintf(stdout, "%s account in portfolio %s removed successfully\n",
-            args.opts.account_opts.opts.rm.asset, args.opts.account_opts.opts.rm.portfolio);
 
     return CMD_OK;
 }
@@ -2583,7 +2578,7 @@ static ParseResult parse_transfer_add_cmd(int *argc, char ***argv, Args *out) {
         switch (opt) {
             case 'h':
                 out->opts.transfer_opts.opts.add.help = true;
-                continue;
+                return (ParseResult){PARSE_OK, ""};
             case 'd':
                 out->opts.transfer_opts.opts.add.deposit = true;
                 continue;

@@ -32,7 +32,6 @@
             }
         }
     },
-    "initializeCommand": "limactl start default || true",
     "mounts": [
         "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached"
     ]
